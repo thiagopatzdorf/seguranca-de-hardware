@@ -1,0 +1,20 @@
+# Regra udev: só teclados e mouses previamente autorizados funcionam.
+#
+# Instalar:  sudo cp 99-bloquear-hid-desconhecido.rules /etc/udev/rules.d/
+#            sudo udevadm control --reload
+# Autorizar o SEU teclado: descubra idVendor/idProduct com `python3 usb.py`
+# e acrescente uma linha ATTR{authorized}="1" para ele ANTES da regra geral.
+# Inversa: apague o arquivo e recarregue.
+#
+# Como funciona: dispositivo USB novo nasce com authorized=1. A última regra
+# zera a autorização de qualquer interface HID (classe 03); as regras acima
+# dela devolvem a autorização para os pares vendor:product conhecidos.
+# Teste antes num terminal aberto: se errar o ID do seu teclado, ele para.
+# Para algo mais completo, use o usbguard (https://usbguard.github.io/).
+
+# Exemplo: teclado conhecido (troque pelos seus IDs)
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="046d", ATTR{idProduct}=="c31c", ATTR{authorized}="1", GOTO="hid_fim"
+
+# Regra geral: HID desconhecido não é autorizado
+ACTION=="add", SUBSYSTEM=="usb", ATTR{bInterfaceClass}=="03", ATTR{../authorized}="0"
+LABEL="hid_fim"
