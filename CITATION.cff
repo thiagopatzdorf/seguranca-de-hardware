@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "Se este material for útil, cite-o como abaixo."
+title: "Segurança de hardware: princípios e laboratórios"
+abstract: >-
+  Segurança é verificação: confiança não se assume, se verifica, e verificar é barato
+  quando a raiz foi provada cara uma vez. Dez princípios e seis laboratórios em Python,
+  com testes, rodáveis sem hardware especial. Aplicação da ideia de amortização
+  (descobrir é caro, verificar é barato) do repositório james-theorems à segurança de hardware.
+type: software
+authors:
+  - name: "Genesis Innovation"
+    website: "https://genesisinnovation.io"
+repository-code: "https://github.com/thiagopatzdorf/seguranca-de-hardware"
+license: MIT
+keywords:
+  - hardware security
+  - root of trust
+  - verification
+  - TPM
+  - secure boot
+  - education
