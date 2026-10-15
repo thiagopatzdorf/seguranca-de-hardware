@@ -40,6 +40,9 @@ Nenhum exige TPM, placa especial ou acesso de root para os testes; onde o
 hardware real existe (TPM em `/dev/tpm0`, EFI em `/sys/firmware/efi`), o
 código o usa; onde não existe, diz que não existe em vez de fingir.
 
+Testes automáticos (CI) a cada push: o modelo está em `docs/ci-exemplo.yml`;
+`CONTRIBUTING.md` diz como ligar.
+
 ## Regras do repositório
 
 - **Meça antes de afirmar.** Toda afirmação de segurança aqui vem com o

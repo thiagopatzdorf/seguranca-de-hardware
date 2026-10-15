@@ -17,3 +17,9 @@ geram as chaves de que precisam na hora e as descartam.
 Achou um erro? É bem-vindo: erro é a medida mais barata de onde falta uma
 regra. Descreva o defeito (o que esperava, o que aconteceu, como reproduzir),
 não quem errou.
+
+## Testes automáticos (CI)
+
+O modelo de workflow está em `docs/ci-exemplo.yml`. Para ativá-lo, copie o
+conteúdo para `.github/workflows/ci.yml` pelo site do GitHub; a partir daí o
+`pytest` roda sozinho a cada push e pull request.

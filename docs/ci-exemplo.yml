@@ -1,0 +1,23 @@
+# Integração contínua (modelo pronto).
+#
+# Este arquivo NÃO está ativo: para ligar os testes a cada push, copie-o para
+# .github/workflows/ci.yml pelo site do GitHub (botão "Add file" → "Create new
+# file"). O token que criou este repositório não tem permissão para gravar em
+# .github/workflows/, por isso o modelo mora aqui; feito pelo site, funciona.
+#
+# O que ele faz: a cada push e pull request, instala as dependências e roda a
+# suíte inteira (pytest -q). Verde = os laboratórios continuam corretos.
+name: testes
+on:
+  push:
+  pull_request:
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: pytest -q
